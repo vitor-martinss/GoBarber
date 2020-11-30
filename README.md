@@ -34,7 +34,7 @@ Technologies that I used to develop this web client
 **Clone the project and access the folder**
 
 ```bash
-$ git clone https://github.com/EliasGcf/gobarber-web.git && cd gobarber-web
+$ git clone https://github.com/vitor-martinss/gobarber-web.git
 ```
 
 **Follow the steps below**
