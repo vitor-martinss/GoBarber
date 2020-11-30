@@ -1,0 +1,23 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+gobarber-web/node_modules
+gobarber-web/.pnp
+gobarber-web/.pnp.js
+
+# testing
+gobarber-web/coverage
+
+# production
+gobarber-web/build
+
+# misc
+gobarber-web/.DS_Store
+gobarber-web/.env.local
+gobarber-web/.env.development.local
+gobarber-web/.env.test.local
+gobarber-web/.env.production.local
+
+gobarber-web/npm-debug.log*
+gobarber-web/yarn-debug.log*
+gobarber-web/yarn-error.log*
