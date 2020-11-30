@@ -2,7 +2,7 @@
 
 ## 💇🏻‍♂️ About the project
 
-Soon
+This project is based on an application for a hair salon. Containing scheduling, appointments, session and authentication.
 
 
 ## 🚀 Technologies
