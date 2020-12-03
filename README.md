@@ -2,7 +2,7 @@
 
 ## 💇🏻‍♂️ About the project
 
-Soon
+This project is based on an application for a hair salon. Containing scheduling, appointments, session and authentication.
 
 
 ## 🚀 Technologies
@@ -29,12 +29,12 @@ Technologies that I used to develop this web client
 
 ### Requirements
 
-- Have this application's [API](https://github.com/EliasGcf/gobarber-api) running
+- Have this application's [API](https://github.com/vitor-martinss/gobarber-api) running
 
 **Clone the project and access the folder**
 
 ```bash
-$ git clone https://github.com/EliasGcf/gobarber-web.git && cd gobarber-web
+$ git clone https://github.com/vitor-martinss/gobarber-web.git
 ```
 
 **Follow the steps below**
