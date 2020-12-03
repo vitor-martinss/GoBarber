@@ -5,6 +5,14 @@ gobarber-web/node_modules
 gobarber-web/.pnp
 gobarber-web/.pnp.js
 
+gobarber-api/node_modules
+gobarber-api/.pnp
+gobarber-api/.pnp.js
+gobarber-api/build/
+gobarber-api/temp/
+gobarber-api/tmp/*
+gobarber-api/!tmp/.gitkeep
+
 # testing
 gobarber-web/coverage
 

@@ -1,9 +1,10 @@
 /* eslint-disable react/jsx-indent-props */
-import React, { useCallback, useRef } from 'react'
+import React, { useCallback, useRef, useContext } from 'react'
 import { FiMail, FiLock, FiUser, FiArrowLeft } from 'react-icons/fi'
 import { FormHandles } from '@unform/core'
 import { Form } from '@unform/web'
 import * as Yup from 'yup'
+// import { AuthContext } from '../../context/AuthContext'
 import getValidationErrors from '../../utils/getValidationErrors'
 
 import Input from '../../components/Input'
@@ -14,6 +15,7 @@ import { Container, Content, Background } from './styles'
 const SignUp: React.FC = () => {
 	const formRef = useRef<FormHandles>(null)
 
+	// const { signIn } = useContext(AuthContext)
 	const handleSubmit = useCallback(async (data: object) => {
 		try {
 			formRef.current?.setErrors({})
@@ -28,6 +30,8 @@ const SignUp: React.FC = () => {
 			await schema.validate(data, {
 				abortEarly: false,
 			})
+
+			// signIn()
 		} catch (err) {
 			console.log(err)
 			const errors = getValidationErrors(err)
