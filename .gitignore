@@ -5,6 +5,8 @@ gobarber-web/node_modules
 gobarber-web/.pnp
 gobarber-web/.pnp.js
 
+
+
 gobarber-api/node_modules
 gobarber-api/.pnp
 gobarber-api/.pnp.js
@@ -29,3 +31,73 @@ gobarber-web/.env.production.local
 gobarber-web/npm-debug.log*
 gobarber-web/yarn-debug.log*
 gobarber-web/yarn-error.log*
+
+
+# dependencies
+gobarber-app/node_modules
+gobarber-app/.pnp
+gobarber-app/.pnp.js
+
+# OSX
+#
+gobarber-app/.DS_Store
+
+# Xcode
+#
+gobarber-app/build/
+gobarber-app/*.pbxuser
+gobarber-app/!default.pbxuser
+gobarber-app/*.mode1v3
+gobarber-app/!default.mode1v3
+gobarber-app/*.mode2v3
+gobarber-app/!default.mode2v3
+gobarber-app/*.perspectivev3
+gobarber-app/!default.perspectivev3
+gobarber-app/xcuserdata
+gobarber-app/*.xccheckout
+gobarber-app/*.moved-aside
+gobarber-app/DerivedData
+gobarber-app/*.hmap
+gobarber-app/*.ipa
+gobarber-app/*.xcuserstate
+
+# Android/IntelliJ
+#
+gobarber-app/build/
+gobarber-app/.idea
+gobarber-app/.gradle
+gobarber-app/local.properties
+gobarber-app/*.iml
+
+# Visual Studio Code
+#
+gobarber-app/.vscode/
+
+# node.js
+#
+gobarber-app/node_modules/
+gobarber-app/npm-debug.log
+gobarber-app/yarn-error.log
+
+# BUCK
+gobarber-app/buck-out/
+gobarber-app/\.buckd/
+gobarber-app/*.keystore
+gobarber-app/!debug.keystore
+
+# fastlane
+#
+# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
+# screenshots whenever they are needed.
+# For more information about the recommended setup visit:
+# https://docs.fastlane.tools/best-practices/source-control/
+
+gobarber-app/*/fastlane/report.xml
+gobarber-app/*/fastlane/Preview.html
+gobarber-app/*/fastlane/screenshots
+
+# Bundle artifact
+gobarber-app/*.jsbundle
+
+# CocoaPods
+gobarber-app//ios/Pods/
