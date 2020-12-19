@@ -2,8 +2,8 @@
 import { startOfHour } from 'date-fns'
 import { getCustomRepository } from 'typeorm'
 import 'reflect-metadata'
-import Appointment from '../models/Appointment'
-import AppError from '../errors/AppError'
+import Appointment from '../infra/typeorm/entities/Appointment'
+import AppError from '@shared/errors/AppError'
 import AppointmentsRepository from '../repositories/AppointmentsRepository'
 
 interface Request {

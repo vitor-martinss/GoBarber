@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, ManyToOne, JoinColumn } from 'typeorm'
 
-import User from './User'
+import User from '@modules/users/infra/typeorm/entities/User'
 /**
  * Um para Um (OneToOne)
  * Um para Muitos (OneToMany)
