@@ -4,7 +4,13 @@ import FakeHashProvider from '../providers/HashProvider/fakes/FakeHashProvider'
 import AuthenticateUserService from './AuthenticateUserService'
 import CreateUserService from './CreateUserService'
 
+let fakeUsersRepository: FakeUsersRepository;
+
 describe('AuthenticateUser', () => {
+	beforeEach(() => {
+
+	})
+
 	it('should be able to authenticate', async () => {
 		const fakeUsersRepository = new FakeUsersRepository()
 		const fakeHashProvider = new FakeHashProvider()
@@ -32,7 +38,7 @@ describe('AuthenticateUser', () => {
 		const authenticateUser = new AuthenticateUserService(fakeUsersRepository, fakeHashProvider)
 
 
-		expect(authenticateUser.execute({
+		await expect(authenticateUser.execute({
 			email: 'johndoe@example.com',
 			password: '123456',
 		})).rejects.toBeInstanceOf(AppError)
@@ -51,7 +57,7 @@ describe('AuthenticateUser', () => {
 			password: '123456',
 		})
 
-		expect(authenticateUser.execute({
+		await expect(authenticateUser.execute({
 			email: 'johndoe@example.com',
 			password: 'wrong-password',
 		})).rejects.toBeInstanceOf(AppError)
