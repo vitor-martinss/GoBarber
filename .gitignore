@@ -9,6 +9,8 @@ gobarber-web/.pnp.js
 
 gobarber-api/node_modules
 gobarber-api/.pnp
+gobarber-api/.env
+gobarber-api/ormconfig.json
 gobarber-api/.pnp.js
 gobarber-api/build/
 gobarber-api/temp/
