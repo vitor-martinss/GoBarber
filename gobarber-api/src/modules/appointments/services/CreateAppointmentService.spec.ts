@@ -85,4 +85,8 @@ describe('CreateAppointment', () => {
 			provider_id: 'provider-id',
 		})).rejects.toBeInstanceOf(AppError)
 	})
+
+
 })
+
+
