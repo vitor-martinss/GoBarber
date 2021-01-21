@@ -2,9 +2,23 @@ import styled from 'styled-components'
 import { shade } from 'polished'
 
 export const Container = styled.div`
-	height: 100vh;
-	display: flex;
-	align-items: stretch;
+	> header {
+		height: 14.4rem;
+		background: #28262e;
+		display: flex;
+		align-items: center;
+
+		div {
+			width: 100%;
+			max-width: 112rem;
+			margin: 0 auto;
+			svg {
+				color: #999591;
+				width: 2.4rem;
+				height: 2.4rem;
+			}
+		}
+	}
 `
 
 export const Content = styled.div`
@@ -12,7 +26,7 @@ export const Content = styled.div`
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	margin: 0 auto;
+	margin: -9% auto 0;
 
 	width: 100%;
 	padding: 0 5%;
@@ -46,8 +60,48 @@ export const Content = styled.div`
 			}
 		}
 
-		input[name='old-password'] {
-			margin-top: 2.6rem;
+		> :nth-child(3) {
+			margin-bottom: 2.6rem;
+		}
+	}
+`
+
+export const AvatarInput = styled.div`
+	margin-bottom: 3.2rem;
+	width: 18.6rem;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	img {
+		width: 18.6rem;
+		height: 18.6rem;
+		border-radius: 50%;
+		object-fit: cover;
+	}
+
+	label {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		width: 4.8rem;
+		height: 4.8rem;
+		border-radius: 50%;
+		background: #ff9000;
+		border: 0;
+		transition: background-color 0.2s;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		svg {
+			width: 2rem;
+			height: 2rem;
+			color: #312e38;
+		}
+
+		input {
+			display: none;
 		}
 	}
 `
