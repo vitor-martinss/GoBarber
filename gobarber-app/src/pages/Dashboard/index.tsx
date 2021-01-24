@@ -37,6 +37,8 @@ const Dashboard: React.FC = () => {
 	useEffect(() => {
 		api.get('providers').then(response => {
 			setProviders(response.data)
+		}, (error) => {
+			console.log(error)
 		})
 	}, [])
 
@@ -68,7 +70,8 @@ const Dashboard: React.FC = () => {
 				}
 				renderItem={({item: provider}) => (
 					<ProviderContainer onPress={() => navigateToCreateAppointment(provider.id)}>
-						<ProviderAvatar source={{uri: provider.avatar_url}} />
+
+						<ProviderAvatar source={provider.avatar_url ? {uri: provider.avatar_url} : {uri: 'https://i.pravatar.cc/300'} } />
 
 						<ProviderInfo>
 							<ProviderName>{provider.name}</ProviderName>
