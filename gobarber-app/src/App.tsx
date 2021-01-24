@@ -1,5 +1,5 @@
-import 'react-native-gesture-handler'
 import React from 'react'
+import 'react-native-gesture-handler'
 import {View, StatusBar} from 'react-native'
 import {NavigationContainer} from '@react-navigation/native'
 import AppProvider from './hooks'
