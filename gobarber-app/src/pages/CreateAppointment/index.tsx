@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import Icon from 'react-native-vector-icons/Feather'
+import DateTimePicker from '@react-native-community/datetimepicker'
 import {
 	Container,
 	Header,
@@ -11,10 +12,15 @@ import {
 	ProvidersList,
 	ProviderContainer,
 	ProviderAvatar,
-	ProviderName
+	ProviderName,
+	Calendar,
+	Title,
+	OpenDatePickerButton,
+	OpenDatePickerButtonText
 } from './styles'
 import { useAuth } from '../../hooks/auth'
 import api from '../../services/api'
+import { Platform } from 'react-native'
 
 interface RouteParams {
 	providerId: string;
@@ -33,6 +39,10 @@ const CreateAppointment: React.FC = () => {
 
 	const routeParams = route.params as RouteParams;
 
+	const [showDatePicker, setShowDatePicker] = useState(false)
+
+	const [selectedDate, setSelectedDate] = useState(new Date())
+
 	const [providers, setProviders] = useState<Provider[]>([])
 	const [selectedProvider, setSelectedProvider] = useState(routeParams.providerId)
 
@@ -50,6 +60,20 @@ const CreateAppointment: React.FC = () => {
 
 	const handleSelectrovider = useCallback((providerId: string) => {
 		setSelectedProvider(providerId)
+	}, [])
+
+	const handleToggleDatePicker =  useCallback(() => {
+		setShowDatePicker(state => !state)
+	}, [])
+
+	const handleDateChanged =  useCallback((event: any, date: Date | undefined) => {
+		if (Platform.OS === 'android') {
+			setShowDatePicker(false)
+		}
+
+		if (date) {
+			setSelectedDate(date)
+		}
 	}, [])
 
 	return (
@@ -79,6 +103,24 @@ const CreateAppointment: React.FC = () => {
 					)}
 				/>
 			</ProvidersListContainer>
+				<Calendar>
+					<Title>Esolha a data</Title>
+					<OpenDatePickerButton onPress={handleToggleDatePicker}>
+						<OpenDatePickerButtonText>Selecionar outra data</OpenDatePickerButtonText>
+					</OpenDatePickerButton>
+
+					{showDatePicker && (
+						<DateTimePicker
+							mode="date"
+							onChange={handleDateChanged}
+							value={selectedDate}
+							display="calendar"
+							//textColor='f4ede8'
+						/>
+					)}
+
+				</Calendar>
+
 
 		</Container>
 	)
