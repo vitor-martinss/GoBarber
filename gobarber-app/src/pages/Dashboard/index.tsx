@@ -30,7 +30,7 @@ export interface Provider {
 
 const Dashboard: React.FC = () => {
 	const [providers, setProviders] = useState<Provider[]>([])
-	const {signOut, user} = useAuth()
+	const {user} = useAuth()
 
 	const {navigate} = useNavigation()
 
@@ -43,9 +43,9 @@ const Dashboard: React.FC = () => {
 	}, [])
 
 	const navigateToProfile = useCallback(() => {
-		//navigate('Profile')
-		signOut()
-	}, [signOut])
+		navigate('Profile')
+
+	}, [navigate])
 
 	const navigateToCreateAppointment = useCallback((providerId: string) => {
 		navigate('CreateAppointment', {providerId})
@@ -58,7 +58,7 @@ const Dashboard: React.FC = () => {
 					Bem vindo, {"\n"}
 					<UserName>{user.name}</UserName>
 				</HeaderTitle>
-				<ProfileButton onPress={() => {navigateToProfile}}>
+				<ProfileButton onPress={navigateToProfile}>
 					<UserAvatar source={{uri: user.avatar_url}} />
 				</ProfileButton>
 			</Header>
