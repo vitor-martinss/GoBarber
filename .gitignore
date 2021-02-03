@@ -20,6 +20,8 @@ gobarber-api/!tmp/.gitkeep
 # testing
 gobarber-web/coverage
 gobarber-app/coverage
+gobarber-api/coverage
+
 # production
 gobarber-web/build
 
