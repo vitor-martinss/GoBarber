@@ -19,7 +19,7 @@ gobarber-api/!tmp/.gitkeep
 
 # testing
 gobarber-web/coverage
-
+gobarber-app/coverage
 # production
 gobarber-web/build
 
