@@ -24,7 +24,9 @@ gobarber-api/coverage
 
 # production
 gobarber-web/build
-
+gobarber-api/dist
+gobarber-web/dist
+gobarber-app/dist
 # misc
 gobarber-web/.DS_Store
 gobarber-web/.env.local
