@@ -3,7 +3,7 @@ import {MigrationInterface, QueryRunner, Table} from "typeorm"
 export default class CreateAppointments1605027505151 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
-		await queryRunner.query(`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`);
+		await queryRunner.query(`CREATE EXTENSION IF NOT EXISTS "uuid-ossp" WITH SCHEMA public`);
 		await queryRunner.createTable(
 			new Table({
 				name: 'appointments',
