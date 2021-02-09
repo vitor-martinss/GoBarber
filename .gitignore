@@ -29,6 +29,7 @@ gobarber-web/dist
 gobarber-app/dist
 # misc
 gobarber-web/.DS_Store
+gobarber-web/.env
 gobarber-web/.env.local
 gobarber-web/.env.development.local
 gobarber-web/.env.test.local
