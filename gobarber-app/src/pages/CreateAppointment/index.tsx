@@ -173,12 +173,12 @@ const CreateAppointment: React.FC = () => {
 						showsHorizontalScrollIndicator={false}
 						data={providers}
 						keyExtractor={(provider) => provider.id}
-						renderItem={({item: provider}) => (
+						renderItem={({item: provider, index}) => (
 							<ProviderContainer
 								onPress={() => handleSelectrovider(provider.id)}
 								selected={provider.id === selectedProvider}
 							>
-								<ProviderAvatar source={provider.avatar_url ? {uri: provider.avatar_url} : {uri: 'https://i.pravatar.cc/300'} } />
+								<ProviderAvatar source={provider.avatar_url ? {uri: provider.avatar_url} : {uri: `https://i.pravatar.cc/300?img=${index}`} } />
 								<ProviderName selected={provider.id === selectedProvider}>{provider.name}</ProviderName>
 							</ProviderContainer>
 						)}

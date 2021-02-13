@@ -69,3 +69,8 @@
 - O usuário não pode agendar em um horário já ocupado;
 - O usuário não pode agendar em um horário que ja passou;
 - O usuário não pode agendar serviços com ele mesmo;
+
+# Common Errors
+
+- Error 401 when connected to front-end or mobile.
+	- It can be JWT authentication that has expired => just log out and authenticate again

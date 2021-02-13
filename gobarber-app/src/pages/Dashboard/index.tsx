@@ -44,7 +44,7 @@ const Dashboard: React.FC = () => {
 
 	const navigateToProfile = useCallback(() => {
 		navigate('Profile')
-
+		//signOut()
 	}, [navigate])
 
 	const navigateToCreateAppointment = useCallback((providerId: string) => {
@@ -59,7 +59,7 @@ const Dashboard: React.FC = () => {
 					<UserName>{user.name}</UserName>
 				</HeaderTitle>
 				<ProfileButton onPress={navigateToProfile}>
-					<UserAvatar source={{uri: user.avatar_url}} />
+					<UserAvatar source={user.avatar_url ? {uri: user.avatar_url} : {uri: 'https://i.pravatar.cc/300'} } />
 				</ProfileButton>
 			</Header>
 			<ProvidersList
@@ -68,10 +68,10 @@ const Dashboard: React.FC = () => {
 				ListHeaderComponent={
 					<ProvidersListTitle>Cabeleireiros</ProvidersListTitle>
 				}
-				renderItem={({item: provider}) => (
+				renderItem={({item: provider, index}) => (
 					<ProviderContainer onPress={() => navigateToCreateAppointment(provider.id)}>
 
-						<ProviderAvatar source={provider.avatar_url ? {uri: provider.avatar_url} : {uri: 'https://i.pravatar.cc/300'} } />
+						<ProviderAvatar source={provider.avatar_url ? {uri: provider.avatar_url} : {uri: `https://i.pravatar.cc/300?img=${index}`} } />
 
 						<ProviderInfo>
 							<ProviderName>{provider.name}</ProviderName>

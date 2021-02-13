@@ -8,11 +8,10 @@ import {Form} from '@unform/mobile'
 import {FormHandles} from '@unform/core'
 import Input from '../../components/Input'
 import Button from '../../components/Button'
-import Modal from 'react-native-modal';
 import Icon from 'react-native-vector-icons/Feather'
 import { Container, Title, BackButton, UserAvatarButton, UserAvatar, UploadButton,  LogoutButton, LogoutButtonText} from './styles'
 import { useAuth } from '../../hooks/auth'
-import * as ImagePicker from 'react-native-image-picker/src'
+import ImagePicker from 'react-native-image-picker'
 
 interface ProfileFormData {
 	name: string;
@@ -26,8 +25,6 @@ const SignUp: React.FC = () => {
 	const { user, updateUser } = useAuth()
 	const formRef = useRef<FormHandles>(null)
 	const navigation = useNavigation()
-
-	const [showModalUpdateAvatar, setShowModalUpdateAvatar] = useState(false);
 
 	const emailInputRef = useRef<TextInput>(null)
 
@@ -111,50 +108,36 @@ const SignUp: React.FC = () => {
 	}, [navigation])
 
 
-	const toggleModal = useCallback(() => {
-		setShowModalUpdateAvatar(!showModalUpdateAvatar);
-	}, [showModalUpdateAvatar]);
-
-	const updatePhotoFromCamera = useCallback(() => {
-		ImagePicker.launchCamera(
-			{
-				mediaType: 'photo',
-				saveToPhotos: true,
-				quality: 0.5,
-			},
-		(response) => {
-			console.log(response);
-			},
-		);
-	}, []);
-
 	const updatePhotoFromGallery = useCallback(() => {
-		ImagePicker.launchImageLibrary(
+		ImagePicker.showImagePicker(
 			{
-				mediaType: 'photo',
-				quality: 0.5,
+				title: 'Selecione um avatar',
+				cancelButtonTitle: 'Cancelar',
+				takePhotoButtonTitle: 'Usar Câmera',
+				chooseFromLibraryButtonTitle: 'Escolhe da galeria',
 			},
-			async (response) => {
+			(response) => {
 				if (response.didCancel) {
 					return
 				}
 
-				if (response.errorMessage) {
+				if (response.error) {
 					Alert.alert('Erro ao atualizar seu avatar')
 				}
+
 
 				const data = new FormData();
 
 				data.append('avatar', {
-				type: 'image/jpeg',
-				name: `${user.id}.jpg`,
-				uri: response.uri,
+					type: 'image/jpg',
+					name: `${user.id}.jpg`,
+					uri: response.uri,
 				});
 
-				const apiResponse = await api.patch('users/avatar', data);
-
-				updateUser(apiResponse.data);
-			},
+				api.patch('users/avatar', data).then((apiResponse) => {
+					updateUser(apiResponse.data)
+				});
+			}
 		);
 	}, [updateUser, user.id]);
 
@@ -235,23 +218,7 @@ const SignUp: React.FC = () => {
 						</Form>
 					</Container>
 				</ScrollView>
-				<Modal
-					isVisible={showModalUpdateAvatar}
-					backdropOpacity={0.9}
-					backdropColor="#3e3b47">
-					<UploadButton>
-						<ButtonRN title="Usar câmera" onPress={updatePhotoFromCamera} />
-					</UploadButton>
-					<UploadButton>
-						<ButtonRN
-							title="Selecionar da galera"
-							onPress={updatePhotoFromGallery}
-						/>
-					</UploadButton>
-					<UploadButton>
-						<ButtonRN title="Cancelar" onPress={toggleModal} color="red" />
-					</UploadButton>
-				</Modal>
+
 			</KeyboardAvoidingView>
 
 		</>
