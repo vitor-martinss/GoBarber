@@ -44,6 +44,9 @@ export const Container = styled.div<ContainerProps>`
 		border: 0;
 		flex: 1;
 		color: #666360;
+		width: 100%;
+		font-size: 1.4rem;
+
 		&::placeholder {
 			color: #666360;
 		}

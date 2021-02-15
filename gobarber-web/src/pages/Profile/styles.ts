@@ -10,8 +10,13 @@ export const Container = styled.div`
 
 		div {
 			width: 100%;
-			max-width: 112rem;
+			max-width: 90%;
 			margin: 0 auto;
+
+			@media (min-width: 1920px) {
+				max-width: 90rem;
+			}
+
 			svg {
 				color: #999591;
 				width: 2.4rem;
@@ -26,8 +31,7 @@ export const Content = styled.div`
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	margin: -9% auto 0;
-
+	margin: -9rem auto 0;
 	width: 100%;
 	padding: 0 5%;
 
@@ -72,6 +76,7 @@ export const AvatarInput = styled.div`
 	margin-left: auto;
 	margin-right: auto;
 	position: relative;
+
 	img {
 		width: 18.6rem;
 		height: 18.6rem;

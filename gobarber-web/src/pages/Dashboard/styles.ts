@@ -10,19 +10,44 @@ export const Header = styled.div`
 	background: #28262e;
 `
 export const HeaderContent = styled.div`
-	max-width: 112rem;
+	max-width: 90%;
 	margin: 0 auto;
 	display: flex;
-	align-items: center;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	position: relative;
+
+	@media (min-width: 768px) {
+		flex-wrap: nowrap;
+		align-items: center;
+	}
+
+	@media (min-width: 1920px) {
+		max-width: 90rem;
+	}
 
 	> img {
 		height: 8rem;
+		width: 100%;
+		margin-bottom: 2rem;
+
+		@media (min-width: 768px) {
+			width: auto;
+			margin-bottom: 0;
+		}
 	}
 
 	button {
-		margin-left: auto;
 		background: transparent;
 		border: 0;
+		position: absolute;
+		top: 0;
+		right: 0;
+
+		@media (min-width: 768px) {
+			margin-left: auto;
+			position: relative;
+		}
 
 		svg {
 			color: #999591;
@@ -35,7 +60,10 @@ export const HeaderContent = styled.div`
 export const Profile = styled.div`
 	display: flex;
 	align-items: center;
-	margin-left: 8rem;
+
+	@media (min-width: 768px) {
+		margin-left: 5%;
+	}
 
 	img {
 		width: 5.6rem;
@@ -65,36 +93,52 @@ export const Profile = styled.div`
 `
 
 export const Content = styled.main`
-	max-width: 112rem;
+	max-width: 90%;
 	margin: 6.4rem auto;
 	display: flex;
+	flex-wrap: wrap;
+
+	@media (min-width: 1920px) {
+		max-width: 90rem;
+	}
 `
 
 export const Schedule = styled.div`
 	flex: 1;
-	margin-right: 12rem;
+
+	@media (min-width: 1240px) {
+		padding-right: 10rem;
+	}
 
 	h1 {
-		font-size: 3.6rem;
+		font-size: 3rem;
 	}
 
 	p {
 		margin-top: 0.8rem;
 		color: #ff9000;
-		align-items: center;
 		font-weight: bold;
 		display: flex;
+		flex-direction: column;
+
+		@media (min-width: 575px) {
+			align-items: center;
+			flex-direction: row;
+		}
+
 		span {
 			display: flex;
 			align-items: center;
 		}
 
 		span + span::before {
-			content: '';
-			width: 0.1rem;
-			height: 1.2rem;
-			background: #ff9000;
-			margin: 0 0.8rem;
+			@media (min-width: 575px) {
+				content: '';
+				width: 0.1rem;
+				height: 1.2rem;
+				background: #ff9000;
+				margin: 0 0.8rem;
+			}
 		}
 	}
 `
@@ -112,10 +156,14 @@ export const NextAppointment = styled.div`
 		background: #3e3b47;
 		display: flex;
 		align-items: center;
-		padding: 1.6rem 2.4rem;
+		padding: 1rem;
 		border-radius: 1rem;
 		margin-top: 2.4rem;
 		position: relative;
+
+		@media (min-width: 575px) {
+			padding: 1.6rem 2.4rem;
+		}
 
 		&::before {
 			content: '';
@@ -128,14 +176,23 @@ export const NextAppointment = styled.div`
 		}
 
 		img {
-			width: 8rem;
-			height: 8rem;
+			width: 4rem;
+			height: 4rem;
 			border-radius: 50%;
+
+			@media (min-width: 575px) {
+				width: 8rem;
+				height: 8rem;
+			}
 		}
 
 		strong {
-			margin-left: 2.4rem;
 			color: #fff;
+			margin-left: 1rem;
+
+			@media (min-width: 575px) {
+				margin-left: 2rem;
+			}
 		}
 
 		span {
@@ -157,7 +214,7 @@ export const Section = styled.section`
 
 	> strong {
 		color: #999591;
-		font-size: 2rem;
+		font-size: 1.8rem;
 		line-height: 2.6rem;
 		border-bottom: 0.1rem solid #3e3b47;
 		display: block;
@@ -177,11 +234,11 @@ export const Appointment = styled.div`
 		margin-top: 1.6rem;
 	}
 	span {
-		margin-left: auto;
 		display: flex;
 		align-items: center;
 		color: #f4ede8;
 		width: 7rem;
+		font-size: 1.2rem;
 
 		svg {
 			color: #ff9000;
@@ -194,25 +251,46 @@ export const Appointment = styled.div`
 		background: #3e3b47;
 		display: flex;
 		align-items: center;
-		padding: 1.6rem 2.4rem;
+		padding: 1rem;
 		border-radius: 1rem;
-		margin-left: 2.4rem;
+		transition: 0.2s;
+
+		@media (min-width: 575px) {
+			margin-left: 2rem;
+			padding: 1.6rem 2.4rem;
+		}
 
 		img {
-			width: 5.6rem;
-			height: 5.6rem;
+			width: 3rem;
+			height: 3rem;
 			border-radius: 50%;
+
+			@media (min-width: 575px) {
+				width: 5.6rem;
+				height: 5.6rem;
+			}
 		}
 
 		strong {
-			margin-left: 2.4rem;
 			color: #fff;
-			font-size: 2rem;
+			font-size: 1.6rem;
+			margin-left: 1rem;
+
+			@media (min-width: 575px) {
+				font-size: 2rem;
+				margin-left: 2rem;
+			}
 		}
 	}
 `
 export const Calendar = styled.aside`
-	width: 38rem;
+	width: 100%;
+	margin-top: 5rem;
+
+	@media (min-width: 1240px) {
+		width: 40%;
+		margin-top: 0;
+	}
 	.DayPicker {
 		border-radius: 0.6rem;
 		font-size: 1.6rem;
@@ -227,6 +305,7 @@ export const Calendar = styled.aside`
 	.DayPicker,
 	.DayPicker-Month {
 		width: 100%;
+		overflow: auto;
 	}
 
 	.DayPicker-NavButton {

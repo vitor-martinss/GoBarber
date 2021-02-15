@@ -142,9 +142,13 @@ const Dashboard: React.FC = () => {
 						{user.avatar_url ? (
 							<img src={user.avatar_url} alt={user.name} />
 						) : (
-							''
+							<img
+								// eslint-disable-next-line react/jsx-indent-props
+								src="https://i.pravatar.cc/300"
+								// eslint-disable-next-line react/jsx-indent-props
+								alt={user.name}
+							/>
 						)}
-
 						<div>
 							<span>Bem-vindo,</span>
 							<Link to="/profile">
@@ -171,12 +175,22 @@ const Dashboard: React.FC = () => {
 						<NextAppointment>
 							<strong>Agendamento a seguir</strong>
 							<div>
-								<img
-									// eslint-disable-next-line react/jsx-indent-props
-									src={nextAppointment.user.avatar_url}
-									// eslint-disable-next-line react/jsx-indent-props
-									alt={nextAppointment.user.name}
-								/>
+								{nextAppointment.user.avatar_url ? (
+									<img
+										// eslint-disable-next-line react/jsx-indent-props
+										src={nextAppointment.user.avatar_url}
+										// eslint-disable-next-line react/jsx-indent-props
+										alt={nextAppointment.user.name}
+									/>
+								) : (
+									<img
+										// eslint-disable-next-line react/jsx-indent-props
+										src="https://i.pravatar.cc/300"
+										// eslint-disable-next-line react/jsx-indent-props
+										alt={nextAppointment.user.name}
+									/>
+								)}
+
 								<strong>{nextAppointment.user.name}</strong>
 								<span>
 									<FiClock />
@@ -198,11 +212,22 @@ const Dashboard: React.FC = () => {
 									{appointment.hourFormatted}
 								</span>
 								<div>
-									<img // eslint-disable-next-line react/jsx-indent-props
-										src={appointment.user.avatar_url}
-										// eslint-disable-next-line react/jsx-indent-props
-										alt={appointment.user.name}
-									/>
+									{appointment.user.avatar_url ? (
+										<img
+											// eslint-disable-next-line react/jsx-indent-props
+											src={appointment.user.avatar_url}
+											// eslint-disable-next-line react/jsx-indent-props
+											alt={appointment.user.name}
+										/>
+									) : (
+										<img
+											// eslint-disable-next-line react/jsx-indent-props
+											src="https://i.pravatar.cc/300"
+											// eslint-disable-next-line react/jsx-indent-props
+											alt={appointment.user.name}
+										/>
+									)}
+
 									<strong>{appointment.user.name}</strong>
 								</div>
 							</Appointment>
@@ -221,11 +246,22 @@ const Dashboard: React.FC = () => {
 									{appointment.hourFormatted}
 								</span>
 								<div>
-									<img // eslint-disable-next-line react/jsx-indent-props
-										src={appointment.user.avatar_url}
-										// eslint-disable-next-line react/jsx-indent-props
-										alt={appointment.user.name}
-									/>
+									{appointment.user.avatar_url ? (
+										<img
+											// eslint-disable-next-line react/jsx-indent-props
+											src={appointment.user.avatar_url}
+											// eslint-disable-next-line react/jsx-indent-props
+											alt={appointment.user.name}
+										/>
+									) : (
+										<img
+											// eslint-disable-next-line react/jsx-indent-props
+											src="https://i.pravatar.cc/300"
+											// eslint-disable-next-line react/jsx-indent-props
+											alt={appointment.user.name}
+										/>
+									)}
+
 									<strong>{appointment.user.name}</strong>
 								</div>
 							</Appointment>

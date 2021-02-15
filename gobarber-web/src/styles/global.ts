@@ -16,11 +16,13 @@ export default createGlobalStyle`
 
 	body, input, button {
 		font-family: 'Roboto Slab', serif;
-		font-size: 1.6rem;
+		font-size: 1.4rem;
 	}
 
 	h1, h2, h3, h4, h5, h6, strong {
 		font-weight: 500;
+		font-size: 2rem;
+
 	}
 
 	button {

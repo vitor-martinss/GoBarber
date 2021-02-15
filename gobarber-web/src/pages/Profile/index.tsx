@@ -140,7 +140,11 @@ const Profile: React.FC = () => {
 			</header>
 			<Content>
 				<AvatarInput>
-					<img src={user.avatar_url} alt={user.name} />
+					{user.avatar_url ? (
+						<img src={user.avatar_url} alt={user.name} />
+					) : (
+						<img src="https://i.pravatar.cc/300" alt={user.name} />
+					)}
 					<label htmlFor="avatar">
 						<FiCamera />
 						<input
